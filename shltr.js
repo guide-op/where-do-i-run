@@ -8,7 +8,7 @@ const day = daysOfWeek[today.getDay()];
 const startDate = new Date('2024-08-08');
 const timeDiff = today.getTime() - startDate.getTime();
 const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-const number = (daysPassed % 2) + 1;
+const number = ((daysPassed + 1) % 2) + 1;
 const numDescr = {
         1: "Озеро",
         2: "Старий КПП",

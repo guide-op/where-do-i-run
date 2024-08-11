@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>З'ябуй в жито</title>
-    <link rel="stylesheet" href="shltr.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -15,6 +15,17 @@
          <div id="number-display"></div>
          <div id="number-description"></div>
      </div>
-     <script src="shltr.js"></script>
+     <script src="script.js"></script>
+     <script>
+         if ('serviceWorker' in navigator) {
+             await navigator.serviceWorker.register('service-worker.js')
+             .then(registration => {
+                 console.log('Service Worker registered with scope:', registration.scope);
+             })
+             .catch(error => {
+                 console.log('Service Worker registration failed:', error);
+             });
+         }
+     </script>
  </body>
  </html>

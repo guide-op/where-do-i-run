@@ -97,12 +97,14 @@ ul {
     list-style: none;
     padding: 0;
     margin: 20px 0;
+    columns: 2;
 }
 
 li {
-    padding: 10px;
-    font-size: 1.2em;
+    padding: 5px 10px;
+    font-size: 0.8em;
     border-bottom: 1px solid #ddd;
+    text-align: start;
 }
 
 li.done {

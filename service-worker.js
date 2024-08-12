@@ -4,6 +4,7 @@ const filesToCache = [
     '/index.html',
     '/styles.css',
     '/script.js',
+    '/favicon.ico',
 ];
 
 self.addEventListener('install', event => {

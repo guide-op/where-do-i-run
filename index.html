@@ -5,18 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>З'ябуй в жито</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="assets/swiper-bundle.min.css">
+    <script src="assets/swiper-bundle.min.js"></script>
+    
 </head>
 <body>
-    <div class="container">
-        <h1 id="day"></h1>
-      <h2 id="day2"></h2>
+    <div class="swiper slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide shelter"> 
+                <div class="container fullscreen">
+			        <div class="tile">
+			            <h1 id="day"></h1>
+			            <h2 id="day2"></h2>
+			        </div>
+			        <div class="tile">
+			            <h2 id="evac">Зона евакуації</h2>
+			            <div id="number-display"></div>
+			            <div id="number-description"></div>
+			        </div>
+			    </div>
+		    </div>
+            <div class="swiper-slide schedule">
+			    <div class="container fullscreen">
+			        <div class="cell">
+			            <h1>Розпорядок дня</h1>
+			            <ul id="timetable"></ul>
+			            <div id="countdown"></div>
+			        </div>
+			        <div class="cell">
+						<div class="switch-container">
+						    <input type="checkbox" id="switch" class="switch-input">
+						    <label for="switch" class="switch-label">
+						        <span class="switch-slider"></span>
+						    </label>
+						    <span class="switch-text" id="switchText">Полігон</span>
+						</div>
+			        </div>
+			    </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>  
+    </div>
+    
 
-         <h2 id="evac">Зона евакуації</h2>
-         <div id="number-display"></div>
-         <div id="number-description"></div>
-     </div>
-     <script src="script.js"></script>
-     <script>
+    <script src="script.js"></script>
+    <script>
          if ('serviceWorker' in navigator) {
              await navigator.serviceWorker.register('service-worker.js')
              .then(registration => {
@@ -26,6 +61,6 @@
                  console.log('Service Worker registration failed:', error);
              });
          }
-     </script>
+    </script>
  </body>
  </html>

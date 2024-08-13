@@ -5,6 +5,8 @@ const filesToCache = [
     '/styles.css',
     '/script.js',
     '/favicon.ico',
+    'assets/swiper-bundle.min.css',
+    'assets/swiper-bundle.min.js',
 ];
 
 self.addEventListener('install', event => {
@@ -15,16 +17,6 @@ self.addEventListener('install', event => {
             })
     );
 });
-
-// Serve content (cache-first version, to be removed)
-//self.addEventListener('fetch', event => {
-//    event.respondWith(
-//        caches.match(event.request)
-//            .then(response => {
-//                return response || fetch(event.request);
-//            })
-//    );
-//});
 
 // Serve network-first, fallback to cache when offline
 self.addEventListener('fetch', event => {

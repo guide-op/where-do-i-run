@@ -25,6 +25,33 @@ const eventsA = [
     { time: '22:00', event: 'Відбій' }
 ];
 
+const eventsB = [
+    { time: '06:00', event: 'Підйом' },
+    { time: '08:30', event: 'Пара 1, Заняття 1' },
+    { time: '09:00', event: 'Хвилина мовчання' },
+    { time: '09:15', event: 'Перерва' },
+    { time: '09:20', event: 'Пара 1, Заняття 2' },
+    { time: '10:05', event: 'Перерва' },
+    { time: '10:20', event: 'Пара 2, Заняття 1' },
+    { time: '11:05', event: 'Перерва' },
+    { time: '11:10', event: 'Пара 2, Заняття 2' },
+    { time: '11:55', event: 'Перерва' },
+    { time: '12:10', event: 'Пара 3, Заняття 1' },
+    { time: '12:55', event: 'Перерва' },
+    { time: '13:00', event: 'Пара 3, Заняття 2' },
+    { time: '13:45', event: 'Перерва на обід' },
+    { time: '15:00', event: 'Пара 4, Заняття 1' },
+    { time: '15:45', event: 'Перерва' },
+    { time: '15:50', event: 'Пара 4, Заняття 2' },
+    { time: '16:35', event: 'Перерва' },
+    { time: '16:50', event: 'Пара 5, Заняття 1' },
+    { time: '17:35', event: 'Перерва' },
+    { time: '17:40', event: 'Пара 5, Заняття 2' },
+    { time: '18:25', event: 'Кінець пар' },
+    { time: '20:20', event: 'Вечірнє шинкування' },
+    { time: '22:00', event: 'Відбій' }
+];
+
 let events = eventsA;
 
 // Swiper
@@ -72,12 +99,10 @@ document.getElementById('number-display').textContent = number;
 document.getElementById('number-description').textContent = numDescr[number];
 
 // Timetable driver
-
-
 const timetableElement = document.getElementById('timetable');
 const countdownElement = document.getElementById('countdown');
 
-function displayTimetable() {
+function displayTimetable(events) {
     timetableElement.innerHTML = '';
     events.forEach((entry, index) => {
         const li = document.createElement('li');
@@ -125,6 +150,21 @@ function checkTime() {
 }
 
 // Initial display of timetable
-displayTimetable();
+displayTimetable(events);
 checkTime();
 setInterval(checkTime, 1000);
+
+// Location switch
+document.getElementById('switch').addEventListener('change', function() {
+    const switchText = document.getElementById('switchText');
+    
+    if (this.checked) {
+        switchText.textContent = 'Місто';
+        events = eventsB;
+    } else {
+        switchText.textContent = 'Полігон';
+        events = eventsA;
+    }
+    displayTimetable(events);
+    checkTime();
+});

@@ -76,7 +76,7 @@ const today = new Date();
 const day = daysOfWeek[today.getDay()];
 
 // Calculate the number (1 or 2) based on the date
-const startDate = new Date('2024-08-07');
+const startDate = new Date('2024-08-07 00:00:00Z+03:00');
 const timeDiff = today.getTime() - startDate.getTime();
 const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 const number = ((daysPassed) % 2) + 1;
@@ -84,6 +84,8 @@ const numDescr = {
         1: "Озеро",
         2: "Старий КПП",
 }
+
+// alert(`${new Date()} vs ${new Date('2024-08-15 00:00:00Z+03:00')}`);
 
 // Format the date as dd.mm.yyyy
 const dayOfMonth = String(today.getDate()).padStart(2, '0');
